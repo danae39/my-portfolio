@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- REQUIRED for responsive design on mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Danielle — Food science and nutrition student">
+  <title>Danielle | Projects</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Skip link: allows keyboard users to skip the nav -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">Danielle</a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class=""><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriVerify - Smart Nutritional Fact Checking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #D35400;
+            --primary-light: #E67E22;
+            --primary-dark: #A04000;
+            --secondary: #27AE60;
+            --danger: #E74C3C;
+            --warning: #F39C12;
+            --bg: #FDF2E9;
+            --text: #2C3E50;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(211, 84, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 20px); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .presenter {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            background: var(--white);
+            color: var(--primary);
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 84, 0, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Sections */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--primary-light);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--primary-dark);
+            margin: 1.5rem 0 1rem;
+        }
+
+        /* Problem Section */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFE0E0 100%);
+            border-left: 5px solid var(--danger);
+            padding: 1.5rem;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '⚠️';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 2rem;
+            opacity: 0.2;
+        }
+
+        .gap-highlight {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gap-highlight::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* Process Flow */
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .process-step {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .process-step:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(211, 84, 0, 0.4);
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .process-step:last-child::after {
+            content: none;
+        }
+
+        .step-number {
+            background: var(--white);
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Interactive Demo */
+        .demo-container {
+            background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #DDD;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(211, 84, 0, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        /* Results Display */
+        .results-panel {
+            display: none;
+            margin-top: 2rem;
+            animation: slideUp 0.5s;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(var(--secondary) 0% 75%, #E0E0E0 75% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .score-inner {
+            width: 120px;
+            height: 120px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .score-value {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        .score-label {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .nutrient-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .nutrient-item {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nutrient-item.deficient {
+            border-left-color: var(--danger);
+            background: #FFF5F5;
+        }
+
+        .nutrient-item.excess {
+            border-left-color: var(--warning);
+            background: #FFF9E6;
+        }
+
+        .nutrient-name {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .nutrient-value {
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        .recommendations {
+            background: linear-gradient(135deg, #E8F8F5 0%, #D5F4E6 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+            border-left: 5px solid var(--secondary);
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-category {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .tech-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list li {
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background: #F8F9FA;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary-light);
+            transition: all 0.3s;
+        }
+
+        .tech-list li:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        /* Benefits */
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, var(--white) 0%, #F8F9FA 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(211, 84, 0, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Food Database */
+        .food-search {
+            margin-bottom: 2rem;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .food-item {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        .food-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .food-item.selected {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .selected-foods {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #F8F9FA;
+            border-radius: 15px;
+            min-height: 100px;
+        }
+
+        .food-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .remove-btn {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #F3F3F3;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Alert System */
+        .alert {
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .alert-danger {
+            background: #FFF5F5;
+            border-left: 4px solid var(--danger);
+            color: var(--danger);
+        }
+
+        .alert-success {
+            background: #E8F8F5;
+            border-left: 4px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .process-step::after { content: '↓'; right: 50%; top: 100%; transform: translateX(50%); }
+            .process-step:last-child::after { content: none; }
+            .container { padding: 1rem; }
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+        .slide-up { animation: slideUp 0.6s ease-out; }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .comparison-table th {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #EEE;
+        }
+
+        .comparison-table tr:hover {
+            background: #F8F9FA;
+        }
+
+        .status-good { color: var(--secondary); font-weight: bold; }
+        .status-bad { color: var(--danger); font-weight: bold; }
+        .status-warning { color: var(--warning); font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🥗 NutriVerify</h1>
+        <p class="subtitle">Smart Nutritional Fact Checking Platform</p>
+        <p class="presenter">Presented by: Daniela Cherono</p>
+    </header>
+
+    <nav>
+        <button class="nav-btn active" onclick="showSection('problem')">Problem</button>
+        <button class="nav-btn" onclick="showSection('solution')">Solution</button>
+        <button class="nav-btn" onclick="showSection('demo')">Live Demo</button>
+        <button class="nav-btn" onclick="showSection('database')">Food Database</button>
+        <button class="nav-btn" onclick="showSection('technology')">Technology</button>
+        <button class="nav-btn" onclick="showSection('benefits')">Benefits</button>
+    </nav>
+
+    <div class="container">
+        <!-- Problem Section -->
+        <section id="problem" class="section active">
+            <div class="card">
+                <h2>🚨 Problem Statement</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Social media spreads conflicting and unscientific claims concerning nutrition, leading to:</p>
+                
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <h3>Elimination of Food Groups</h3>
+                        <p>Trend diets often recommend cutting out entire food groups (carbs, fats, dairy) without scientific justification, leading to nutritional deficiencies.</p>
+                    </div>
+                    <div class="problem-card">
+                        <h3>Unbalanced Macronutrients</h3>
+                        <p>Extreme ratios of proteins, fats, and carbohydrates that don't align with physiological needs or established dietary guidelines.</p>
+                    </div>
+                    <div class="problem-card">
+                        <h3>Inadequate Micronutrients</h3>
+                        <p>Focus on macronutrients often ignores essential vitamins and minerals critical for metabolic health and disease prevention.</p>
+                    </div>
+                </div>
+
+                <div class="gap-highlight">
+                    <h3>🎯 The Critical Gap</h3>
+                    <p style="font-size: 1.2rem; margin-top: 1rem;">No system exists to evaluate nutrition claims based on actual <strong>nutrient composition</strong> and <strong>dietary reference intakes</strong></p>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <h3>The Vicious Cycle</h3>
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; font-size: 1.1rem;">
+                        <span style="background: var(--danger); color: white; padding: 1rem; border-radius: 10px;">Trend-Based Choices</span>
+                        <span style="font-size: 2rem;">→</span>
+                        <span style="background: var(--warning); color: white; padding: 1rem; border-radius: 10px;">Unverified Claims</span>
+                        <span style="font-size: 2rem;">→</span>
+                        <span style="background: var(--primary); color: white; padding: 1rem; border-radius: 10px;">Nutrient Imbalances</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solution" class="section">
+            <div class="card">
+                <h2>✨ Proposed Solution: NutriVerify</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">A comprehensive nutritional fact-checking platform that bridges the gap between nutrition science and consumer choices.</p>
+
+                <div class="process-flow">
+                    <div class="process-step" onclick="highlightStep(1)">
+                        <div class="step-number">1</div>
+                        <h3>Submit Claim</h3>
+                        <p>User submits a diet or nutritional claim</p>
+                    </div>
+                    <div class="process-step" onclick="highlightStep(2)">
+                        <div class="step-number">2</div>
+                        <h3>Identification</h3>
+                        <p>System identifies foods and nutrients involved</p>
+                    </div>
+                    <div class="process-step" onclick="highlightStep(3)">
+                        <div class="step-number">3</div>
+                        <h3>Estimation</h3>
+                        <p>Nutrient intake is calculated and estimated</p>
+                    </div>
+                    <div class="process-step" onclick="highlightStep(4)">
+                        <div class="step-number">4</div>
+                        <h3>Comparison</h3>
+                        <p>Intake compared to recommended allowances</p>
+                    </div>
+                    <div class="process-step" onclick="highlightStep(5)">
+                        <div class="step-number">5</div>
+                        <h3>Results</h3>
+                        <p>User receives adequacy score and corrections</p>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #E8F8F5 0%, #D5F4E6 100%); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
+                    <h3>🛡️ Key Features</h3>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li style="padding: 0.5rem 0;">✅ Verification using scientific databases (USDA, FoodData Central)</li>
+                        <li style="padding: 0.5rem 0;">🚩 Automatic flagging of false or misleading claims</li>
+                        <li style="padding: 0.5rem 0;">📊 Evidence-based nutrition guidance and recommendations</li>
+                        <li style="padding: 0.5rem 0;">📱 User-friendly interface with mobile accessibility</li>
+                        <li style="padding: 0.5rem 0;">🔒 Integration with dietary reference intakes (DRI) and AMDR</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Demo Section -->
+        <section id="demo" class="section">
+            <div class="card">
+                <h2>🧪 Live Verification Demo</h2>
+                <p>Test a nutritional claim or analyze your daily diet intake:</p>
+
+                <div class="demo-container">
+                    <div class="alert alert-danger" id="alertMsg"></div>
+                    
+                    <div class="input-group">
+                        <label>Select Analysis Type:</label>
+                        <select id="analysisType" onchange="toggleInput()">
+                            <option value="claim">Verify a Nutrition Claim</option>
+                            <option value="diet">Analyze My Diet</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group" id="claimInput">
+                        <label>Enter Nutritional Claim:</label>
+                        <textarea id="claimText" placeholder="Example: 'The carnivore diet provides all essential nutrients without any plant foods'"></textarea>
+                    </div>
+
+                    <div class="input-group" id="dietInput" style="display:none;">
+                        <label>Describe Your Daily Diet:</label>
+                        <textarea id="dietText" placeholder="Example: Breakfast: 2 eggs, toast, orange juice. Lunch: Grilled chicken salad. Dinner: Steak with potatoes..."></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Your Profile:</label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <select id="gender">
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                            </select>
+                            <select id="age">
+                                <option value="adult">Adult (19-50)</option>
+                                <option value="senior">Senior (51+)</option>
+                                <option value="teen">Teen (14-18)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary" onclick="analyzeNutrition()">
+                        🔍 Analyze Now
+                        <span style="font-size: 1.2rem;">→</span>
+                    </button>
+
+                    <div class="loading" id="loading">
+                        <div class="spinner"></div>
+                        <p>Analyzing nutrient composition...</p>
+                        <p style="font-size: 0.9rem; color: #666;">Comparing against DRI and AMDR standards...</p>
+                    </div>
+
+                    <div class="results-panel" id="results">
+                        <h3 style="text-align: center; color: var(--primary);">Analysis Results</h3>
+                        
+                        <div class="score-circle">
+                            <div class="score-inner">
+                                <div class="score-value" id="scoreValue">85</div>
+                                <div class="score-label">Nutrient Score</div>
+                            </div>
+                        </div>
+
+                        <h3>Macronutrient Analysis</h3>
+                        <div class="nutrient-grid" id="macroResults">
+                            <!-- Dynamically populated -->
+                        </div>
+
+                        <h3>Micronutrient Status</h3>
+                        <div class="nutrient-grid" id="microResults">
+                            <!-- Dynamically populated -->
+                        </div>
+
+                        <div class="recommendations" id="recommendations">
+                            <h3>🎯 Recommendations</h3>
+                            <ul id="recList"></ul>
+                        </div>
+
+                        <div style="margin-top: 2rem; padding: 1rem; background: #FFF9E6; border-radius: 10px; border-left: 4px solid var(--warning);">
+                            <strong>⚠️ Claim Verification:</strong>
+                            <p id="claimVerdict" style="margin-top: 0.5rem;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Food Database Section -->
+        <section id="database" class="section">
+            <div class="card">
+                <h2>🍎 Food Composition Database</h2>
+                <p>Search and select foods to build your nutritional profile:</p>
+
+                <div class="food-search">
+                    <input type="text" id="foodSearch" placeholder="Search foods (e.g., 'apple', 'chicken', 'rice')..." onkeyup="searchFoods()">
+                </div>
+
+                <div class="food-grid" id="foodGrid">
+                    <!-- Dynamically populated -->
+                </div>
+
+                <div class="selected-foods">
+                    <h3>Selected Foods:</h3>
+                    <div id="selectedFoodsList">
+                        <p style="color: #999; font-style: italic;">No foods selected. Click foods above to add them.</p>
+                    </div>
+                    <button class="btn-primary" style="margin-top: 1rem;" onclick="analyzeSelectedFoods()">Analyze Selection</button>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h3>Sample Nutritional Data (per 100g)</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Food</th>
+                                <th>Calories</th>
+                                <th>Protein</th>
+                                <th>Carbs</th>
+                                <th>Fat</th>
+                                <th>Vit C</th>
+                                <th>Iron</th>
+                                <th>Calcium</th>
+                            </tr>
+                        </thead>
+                        <tbody id="foodTableBody">
+                            <!-- Dynamically populated -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section id="technology" class="section">
+            <div class="card">
+                <h2>⚙️ Technology Stack</h2>
+                
+                <div class="tech-grid">
+                    <div class="tech-category">
+                        <h3>💻 Software</h3>
+                        <ul class="tech-list">
+                            <li>AI/Rule-based Validation Engine</li>
+                            <li>Nutrient Analysis Algorithms</li>
+                            <li>Natural Language Processing</li>
+                            <li>Cloud Computing Infrastructure</li>
+                            <li>RESTful API Architecture</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h3>🖥️ Hardware</h3>
+                        <ul class="tech-list">
+                            <li>Mobile Phones (iOS/Android)</li>
+                            <li>Tablet Devices</li>
+                            <li>Cloud Servers (AWS/Azure)</li>
+                            <li>Load Balancers</li>
+                            <li>Secure Database Servers</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h3>🗄️ Databases</h3>
+                        <ul class="tech-list">
+                            <li>USDA FoodData Central</li>
+                            <li>Dietary Reference Intakes (DRI)</li>
+                            <li>Acceptable Macronutrient Distribution Ranges (AMDR)</li>
+                            <li>European Food Safety Authority (EFSA)</li>
+                            <li>WHO Nutrient Guidelines</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; background: #F8F9FA; padding: 2rem; border-radius: 15px;">
+                    <h3>🔐 Data Integration Flow</h3>
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                        <div style="text-align: center; flex: 1; min-width: 150px;">
+                            <div style="font-size: 3rem;">📥</div>
+                            <p>User Input</p>
+                        </div>
+                        <span style="font-size: 2rem;">→</span>
+                        <div style="text-align: center; flex: 1; min-width: 150px;">
+                            <div style="font-size: 3rem;">🤖</div>
+                            <p>AI Parser</p>
+                        </div>
+                        <span style="font-size: 2rem;">→</span>
+                        <div style="text-align: center; flex: 1; min-width: 150px;">
+                            <div style="font-size: 3rem;">🗄️</div>
+                            <p>Database Query</p>
+                        </div>
+                        <span style="font-size: 2rem;">→</span>
+                        <div style="text-align: center; flex: 1; min-width: 150px;">
+                            <div style="font-size: 3rem;">⚖️</div>
+                            <p>Comparison Engine</p>
+                        </div>
+                        <span style="font-size: 2rem;">→</span>
+                        <div style="text-align: center; flex: 1; min-width: 150px;">
+                            <div style="font-size: 3rem;">📊</div>
+                            <p>Results Output</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="section">
+            <div class="card">
+                <h2>🌟 Benefits & Impact</h2>
+                
+                <div class="benefits-container">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🥗</div>
+                        <h3>Improved Diet Quality</h3>
+                        <p>Evidence-based recommendations ensure balanced nutrient intake aligned with scientific standards rather than trends.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚖️</div>
+                        <h3>Macronutrient Balance</h3>
+                        <p>Optimal distribution of proteins, fats, and carbohydrates within AMDR ranges for metabolic health.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💊</div>
+                        <h3>Reduced Deficiencies</h3>
+                        <p>Early identification of micronutrient gaps prevents deficiency diseases and supports immune function.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">👨‍⚕️</div>
+                        <h3>Professional Support</h3>
+                        <p>Tool for nutritionists and dietitians to validate recommendations and educate clients with data.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔬</div>
+                        <h3>Evidence-Based Behavior</h3>
+                        <p>Transforms dietary decision-making from trend-following to science-based choices.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 3rem; border-radius: 20px; text-align: center;">
+                    <h2 style="color: white; border-bottom: none;">🚀 Call to Action</h2>
+                    <p style="font-size: 1.2rem; margin: 1.5rem 0;">Nutrition misinformation compromises nutrient adequacy, dietary balance, and metabolic health.</p>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;"><strong>NutriVerify bridges the gap between nutrition science and consumer diet choices.</strong></p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; text-align: left; margin: 2rem 0;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                            ✅ Approve development of nutrition science pilot
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                            ✅ Integrate food composition and nutrient databases
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px;">
+                            ✅ Position NutriVerify as nutrition validation authority
+                        </div>
+                    </div>
+                    
+                    <p style="font-size: 1.3rem; margin-top: 2rem; font-style: italic;">"Let nutrition science — not trends — guide dietary choices"</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Navigation
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function highlightStep(step) {
+            document.querySelectorAll('.process-step').forEach((s, i) => {
+                if (i + 1 === step) {
+                    s.style.transform = 'scale(1.1)';
+                    setTimeout(() => s.style.transform = '', 300);
+                }
+            });
+        }
+
+        // Demo Toggle
+        function toggleInput() {
+            const type = document.getElementById('analysisType').value;
+            document.getElementById('claimInput').style.display = type === 'claim' ? 'block' : 'none';
+            document.getElementById('dietInput').style.display = type === 'diet' ? 'block' : 'none';
+        }
+
+        // Food Database
+        const foodDatabase = [
+            { name: 'Apple', calories: 52, protein: 0.3, carbs: 14, fat: 0.2, vitC: 4.6, iron: 0.1, calcium: 6, emoji: '🍎' },
+            { name: 'Chicken Breast', calories: 165, protein: 31, carbs: 0, fat: 3.6, vitC: 0, iron: 1, calcium: 15, emoji: '🍗' },
+            { name: 'Brown Rice', calories: 112, protein: 2.6, carbs: 24, fat: 0.9, vitC: 0, iron: 0.5, calcium: 10, emoji: '🍚' },
+            { name: 'Spinach', calories: 23, protein: 2.9, carbs: 3.6, fat: 0.4, vitC: 28, iron: 2.7, calcium: 99, emoji: '🥬' },
+            { name: 'Salmon', calories: 208, protein: 20, carbs: 0, fat: 13, vitC: 0, iron: 0.3, calcium: 9, emoji: '🐟' },
+            { name: 'Egg', calories: 155, protein: 13, carbs: 1.1, fat: 11, vitC: 0, iron: 1.2, calcium: 50, emoji: '🥚' },
+            { name: 'Almonds', calories: 579, protein: 21, carbs: 22, fat: 50, vitC: 0, iron: 3.7, calcium: 269, emoji: '🥜' },
+            { name: 'Milk', calories: 42, protein: 3.4, carbs: 5, fat: 1, vitC: 0, iron: 0.03, calcium: 125, emoji: '🥛' },
+            { name: 'Broccoli', calories: 34, protein: 2.8, carbs: 7, fat: 0.4, vitC: 89, iron: 0.6, calcium: 47, emoji: '🥦' },
+            { name: 'Beef', calories: 250, protein: 26, carbs: 0, fat: 17, vitC: 0, iron: 2.6, calcium: 18, emoji: '🥩' },
+            { name: 'Banana', calories: 89, protein: 1.1, carbs: 23, fat: 0.3, vitC: 8.7, iron: 0.3, calcium: 5, emoji: '🍌' },
+            { name: 'Oats', calories: 389, protein: 16.9, carbs: 66, fat: 6.9, vitC: 0, iron: 4.7, calcium: 54, emoji: '🌾' }
+        ];
+
+        let selectedFoods = [];
+
+        function initFoodDatabase() {
+            const grid = document.getElementById('foodGrid');
+            const tbody = document.getElementById('foodTableBody');
+            
+            grid.innerHTML = '';
+            tbody.innerHTML = '';
+            
+            foodDatabase.forEach((food, index) => {
+                // Grid item
+                const div = document.createElement('div');
+                div.className = 'food-item';
+                div.innerHTML = `<div style="font-size: 2rem;">${food.emoji}</div><div style="font-weight: 600;">${food.name}</div><div style="font-size: 0.9rem; color: #666;">${food.calories} kcal</div>`;
+                div.onclick = () => toggleFoodSelection(index);
+                grid.appendChild(div);
+                
+                // Table row
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${food.emoji} ${food.name}</td>
+                    <td>${food.calories}</td>
+                    <td>${food.protein}g</td>
+                    <td>${food.carbs}g</td>
+                    <td>${food.fat}g</td>
+                    <td>${food.vitC}mg</td>
+                    <td>${food.iron}mg</td>
+                    <td>${food.calcium}mg</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function searchFoods() {
+            const query = document.getElementById('foodSearch').value.toLowerCase();
+            const items = document.querySelectorAll('.food-item');
+            
+            items.forEach((item, index) => {
+                const food = foodDatabase[index];
+                if (food.name.toLowerCase().includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function toggleFoodSelection(index) {
+            const food = foodDatabase[index];
+            const existingIndex = selectedFoods.findIndex(f => f.name === food.name);
+            
+            if (existingIndex > -1) {
+                selectedFoods.splice(existingIndex, 1);
+            } else {
+                selectedFoods.push({...food, quantity: 100});
+            }
+            
+            updateSelectedDisplay();
+            
+            // Update visual selection
+            const items = document.querySelectorAll('.food-item');
+            if (existingIndex > -1) {
+                items[index].classList.remove('selected');
+            } else {
+                items[index].classList.add('selected');
+            }
+        }
+
+        function updateSelectedDisplay() {
+            const container = document.getElementById('selectedFoodsList');
+            
+            if (selectedFoods.length === 0) {
+                container.innerHTML = '<p style="color: #999; font-style: italic;">No foods selected. Click foods above to add them.</p>';
+                return;
+            }
+            
+            container.innerHTML = selectedFoods.map((food, idx) => `
+                <div class="food-tag">
+                    ${food.emoji} ${food.name} (100g)
+                    <span class="remove-btn" onclick="removeFood(${idx})">×</span>
+                </div>
+            `).join('');
+        }
+
+        function removeFood(index) {
+            const food = selectedFoods[index];
+            const originalIndex = foodDatabase.findIndex(f => f.name === food.name);
+            
+            selectedFoods.splice(index, 1);
+            updateSelectedDisplay();
+            
+            const items = document.querySelectorAll('.food-item');
+            items[originalIndex].classList.remove('selected');
+        }
+
+        function analyzeSelectedFoods() {
+            if (selectedFoods.length === 0) {
+                alert('Please select at least one food item.');
+                return;
+            }
+            
+            // Calculate totals
+            const totals = selectedFoods.reduce((acc, food) => {
+                acc.calories += food.calories;
+                acc.protein += food.protein;
+                acc.carbs += food.carbs;
+                acc.fat += food.fat;
+                acc.vitC += food.vitC;
+                acc.iron += food.iron;
+                acc.calcium += food.calcium;
+                return acc;
+            }, { calories: 0, protein: 0, carbs: 0, fat: 0, vitC: 0, iron: 0, calcium: 0 });
+            
+            // Show results in demo section
+            showSection('demo');
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.nav-btn')[2].classList.add('active');
+            
+            displayResults(totals, 'diet');
+        }
+
+        // Analysis Engine
+        function analyzeNutrition() {
+            const type = document.getElementById('analysisType').value;
+            const text = type === 'claim' ? document.getElementById('claimText').value : document.getElementById('dietText').value;
+            
+            if (!text.trim()) {
+                showAlert('Please enter text to analyze.', 'danger');
+                return;
+            }
+            
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('results').style.display = 'none';
+            
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                
+                // Simulate analysis based on keywords
+                const analysis = performAnalysis(text, type);
+                displayResults(analysis, type);
+                
+            }, 2000);
+        }
+
+        function performAnalysis(text, type) {
+            const lower = text.toLowerCase();
+            
+            // Default balanced profile
+            let profile = {
+                calories: 2000,
+                protein: 50,
+                carbs: 250,
+                fat: 65,
+                vitC: 75,
+                iron: 18,
+                calcium: 1000,
+                fiber: 25
+            };
+            
+            // Adjust based on detected foods/claims
+            if (lower.includes('carnivore') || lower.includes('meat only')) {
+                profile.carbs = 10;
+                profile.fiber = 0;
+                profile.vitC = 5;
+                profile.calcium = 400;
+            } else if (lower.includes('keto') || lower.includes('low carb')) {
+                profile.carbs = 30;
+                profile.fiber = 10;
+                profile.fat = 150;
+            } else if (lower.includes('vegan') || lower.includes('plant')) {
+                profile.protein = 40;
+                profile.iron = 25;
+                profile.calcium = 600;
+                profile.vitC = 120;
+            } else if (lower.includes('fruit') || lower.includes('apple') || lower.includes('banana')) {
+                profile.vitC += 50;
+                profile.carbs += 30;
+            }
+            
+            return profile;
+        }
+
+        function displayResults(data, type) {
+            const resultsPanel = document.getElementById('results');
+            resultsPanel.style.display = 'block';
+            
+            // Calculate score
+            let score = 100;
+            const issues = [];
+            
+            // Macronutrient checks (AMDR: Protein 10-35%, Carbs 45-65%, Fat 20-35%)
+            const totalGrams = data.protein + data.carbs + data.fat;
+            const proteinPct = (data.protein * 4 / (data.calories || 2000)) * 100;
+            const carbPct = (data.carbs * 4 / (data.calories || 2000)) * 100;
+            const fatPct = (data.fat * 9 / (data.calories || 2000)) * 100;
+            
+            if (proteinPct < 10) { score -= 15; issues.push('Protein intake below AMDR (10-35%)'); }
+            if (carbPct < 45) { score -= 10; issues.push('Carbohydrate intake below AMDR (45-65%)'); }
+            if (fatPct > 35) { score -= 10; issues.push('Fat intake exceeds AMDR (20-35%)'); }
+            
+            // Micronutrient checks (DRI)
+            if (data.vitC < 75) { score -= 10; issues.push('Vitamin C below DRI (75mg)'); }
+            if (data.iron < 18) { score -= 10; issues.push('Iron below DRI (18mg)'); }
+            if (data.calcium < 1000) { score -= 10; issues.push('Calcium below DRI (1000mg)'); }
+            if (data.fiber < 25) { score -= 5; issues.push('Fiber intake inadequate (<25g)'); }
+            
+            score = Math.max(0, Math.min(100, score));
+            
+            // Update score display
+            document.getElementById('scoreValue').textContent = score;
+            const circle = document.querySelector('.score-circle');
+            const color = score > 80 ? '#27AE60' : score > 60 ? '#F39C12' : '#E74C3C';
+            circle.style.background = `conic-gradient(${color} 0% ${score}%, #E0E0E0 ${score}% 100%)`;
+            document.querySelector('.score-value').style.color = color;
+            
+            // Macronutrients
+            const macroHtml = `
+                <div class="nutrient-item ${proteinPct < 10 || proteinPct > 35 ? 'deficient' : ''}">
+                    <div class="nutrient-name">Protein</div>
+                    <div class="nutrient-value">${data.protein}g (${proteinPct.toFixed(1)}%)</div>
+                    <small>Target: 10-35%</small>
+                </div>
+                <div class="nutrient-item ${carbPct < 45 || carbPct > 65 ? 'deficient' : ''}">
+                    <div class="nutrient-name">Carbohydrates</div>
+                    <div class="nutrient-value">${data.carbs}g (${carbPct.toFixed(1)}%)</div>
+                    <small>Target: 45-65%</small>
+                </div>
+                <div class="nutrient-item ${fatPct < 20 || fatPct > 35 ? 'excess' : ''}">
+                    <div class="nutrient-name">Fat</div>
+                    <div class="nutrient-value">${data.fat}g (${fatPct.toFixed(1)}%)</div>
+                    <small>Target: 20-35%</small>
+                </div>
+            `;
+            document.getElementById('macroResults').innerHTML = macroHtml;
+            
+            // Micronutrients
+            const microHtml = `
+                <div class="nutrient-item ${data.vitC < 75 ? 'deficient' : ''}">
+                    <div class="nutrient-name">Vitamin C</div>
+                    <div class="nutrient-value">${data.vitC}mg / 75mg</div>
+                    <small>${data.vitC < 75 ? '⚠️ Deficient' : '✅ Adequate'}</small>
+                </div>
+                <div class="nutrient-item ${data.iron < 18 ? 'deficient' : ''}">
+                    <div class="nutrient-name">Iron</div>
+                    <div class="nutrient-value">${data.iron}mg / 18mg</div>
+                    <small>${data.iron < 18 ? '⚠️ Deficient' : '✅ Adequate'}</small>
+                </div>
+                <div class="nutrient-item ${data.calcium < 1000 ? 'deficient' : ''}">
+                    <div class="nutrient-name">Calcium</div>
+                    <div class="nutrient-value">${data.calcium}mg / 1000mg</div>
+                    <small>${data.calcium < 1000 ? '⚠️ Deficient' : '✅ Adequate'}</small>
+                </div>
+                <div class="nutrient-item ${data.fiber < 25 ? 'deficient' : ''}">
+                    <div class="nutrient-name">Fiber</div>
+                    <div class="nutrient-value">${data.fiber}g / 25g</div>
+                    <small>${data.fiber < 25 ? '⚠️ Low' : '✅ Good'}</small>
+                </div>
+            `;
+            document.getElementById('microResults').innerHTML = microHtml;
+            
+            // Recommendations
+            const recs = issues.length > 0 ? issues.map(i => `<li style="margin-bottom: 0.5rem;">⚠️ ${i}</li>`).join('') : 
+                '<li style="margin-bottom: 0.5rem;">✅ Your diet meets basic nutritional requirements!</li>';
+            
+            document.getElementById('recList').innerHTML = recs + `
+                <li style="margin-top: 1rem; font-weight: 600;">🎯 Suggested Actions:</li>
+                ${score < 80 ? '<li>• Increase variety of fruits and vegetables</li><li>• Consider whole grains over refined carbs</li><li>• Add lean protein sources</li>' : '<li>• Maintain current balanced approach</li><li>• Monitor portion sizes</li>'}
+            `;
+            
+            // Claim verdict
+            const verdict = type === 'claim' ? 
+                (score < 60 ? '❌ MISLEADING: This claim promotes an unbalanced nutritional profile that could lead to deficiencies.' : 
+                 score < 80 ? '⚠️ PARTIALLY TRUE: Some nutritional aspects are adequate, but improvements needed.' : 
+                 '✅ SCIENTIFICALLY SOUND: This aligns with established dietary guidelines.') :
+                (score < 60 ? 'Your current diet has significant nutritional gaps. Consider dietary diversification.' : 
+                 score < 80 ? 'Good start, but specific nutrients need attention.' : 
+                 'Excellent nutritional profile! Keep up the balanced approach.');
+            
+            document.getElementById('claimVerdict').textContent = verdict;
+            
+            resultsPanel.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showAlert(msg, type) {
+            const alert = document.getElementById('alertMsg');
+            alert.textContent = msg;
+            alert.className = `alert alert-${type}`;
+            alert.style.display = 'block';
+            setTimeout(() => alert.style.display = 'none', 3000);
+        }
+
+        // Initialize
+        window.onload = function() {
+            initFoodDatabase();
+        };
+    </script>
+</body>
+</html>
+      <div class="container">
+        <h2>My Projects</h2>
+        <div class="cards">
+
+          <!-- Repeat this <article> block for each project (minimum 3) -->
+          <article class="card">
+            <span class="card-tag">Nutrition</span>
+            <h3>Nutrient Analysis of Local Foods</h3>
+            <p>Conducted a comprehensive analysis of nutrient content in traditional Kenyan foods using laboratory techniques. Evaluated macronutrients, micronutrients, and their impact on dietary health.</p>
+            <a href="#" class="card-link">View Details →</a>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">Web Dev</span>
+            <h3>Personal Portfolio Website</h3>
+            <p>This responsive portfolio built with pure HTML5 and CSS3
+            as part of my coursework. Showcases my work in food science and nutrition.</p>
+            <a href="#" class="card-link">View Live →</a>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">Biochemistry</span>
+            <h3>Enzyme Activity in Food Processing</h3>
+            <p>Studied enzyme kinetics in food preservation processes, analyzing how temperature and pH affect enzyme activity in fruit juices. Included experimental design and data analysis.</p>
+            <a href="#" class="card-link">Details →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Danielle — Dept. of Food Science and Nutrition</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
